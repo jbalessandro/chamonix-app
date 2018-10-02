@@ -54,7 +54,7 @@ namespace chamonix.Controllers
 
             var conta = new Conta();
             conta.ContaConsumo = consumo;
-            conta.Pedido = _db.Pedido.Include(m => m.Mesa).Where(x => x.MesaId == mesaId).FirstOrDefault();
+            conta.Pedido = _db.Pedido.Include(m => m.Mesa).Where(x => x.MesaId == mesaId && x.FechadaPor == null).FirstOrDefault();
 
             return Ok(conta);
         }

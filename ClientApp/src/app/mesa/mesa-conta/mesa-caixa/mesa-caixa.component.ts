@@ -7,6 +7,7 @@ import { PedidoPgto } from '../../../../models/mesa/pedido-pgto';
 import { PedidoPagamento } from '../../../../models/mesa/pedido-pagamento';
 import { MesaService } from '../../../../services/mesa/mesa.service';
 import { Router } from '@angular/router';
+import { isNumber } from 'util';
 
 @Component({
   selector: 'app-mesa-caixa',
@@ -86,7 +87,13 @@ export class MesaCaixaComponent implements OnInit {
     pagamento.servicoAceito = true; // TODO: servico
     pagamento.valor = Number(this.valor);
     this.service.post(pagamento).subscribe(
-      data => this.saldo = data,
+      data => {
+        this.saldo = data;
+        if (isNumber(this.saldo)) {
+          this.valor = Number(this.saldo);
+        }
+        this.getPagamentos();
+      },
       error => alert('Erro ao gravar')
     );
   }
