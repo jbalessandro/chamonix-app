@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col-md-12">
+    <span *ngFor="let categoria of categorias" (click)="selCategoria(categoria)" class="btn btn-success categoria-btn">{{
+      categoria.descricao }}</span>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" (click)="closeModal()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Alterar Produto</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="nome">Produto</label>
+          <input type="text" [(ngModel)]="model.descricao" maxlength="40" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="nome">Descrição complementar</label>
+          <input type="text" [(ngModel)]="model.detalhe" maxlength="40" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="categoria">Categoria</label>
+          <select [(ngModel)]="model.categoriaId" class="form-control">
+            <option *ngFor="let categoria of categorias" [value]="categoria.categoriaId">{{ categoria.descricao }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="nome">Valor venda</label>
+          <input type="text" [(ngModel)]="model.valorVenda" maxlength="12" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <input type="checkbox" [(ngModel)]="model.controleEstoque" class="form-check-input">
+          <label class="form-check-label" for="ativo">Controlar estoque?</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="nome">Estoque atual</label>
+          <input type="text" [(ngModel)]="model.estoque" maxlength="12" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <input type="checkbox" [(ngModel)]="model.ativo" class="form-check-input">
+          <label class="form-check-label" for="ativo">Ativo</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" (click)="closeModal()" class="btn btn-sm btn-default" data-dismiss="modal">Fechar</button>
+      <button type="button" (click)="gravar()" class="btn btn-sm btn-danger">Gravar</button>
+    </div>
+  </div>
+</div>

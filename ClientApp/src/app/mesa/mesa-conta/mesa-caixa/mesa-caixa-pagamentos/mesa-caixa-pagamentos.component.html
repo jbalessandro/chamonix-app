@@ -1,0 +1,26 @@
+<div class="padding-top-10">
+    <b>Pagamentos</b>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Forma Pagamento</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of pagamentos">
+              <td>{{ item.valor | currency: 'BRL': true }}</td>
+              <td>{{ item.formaPgto?.descricao }}</td>
+              <td class="text-center">
+                <button *ngIf="item.ativo" (click)="excluir(item)" class="btn btn-small btn-default"><span class="glyphicon glyphicon-trash"></span></button>
+                <span *ngIf="!item.ativo" class="glyphicon glyphicon-remove"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

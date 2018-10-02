@@ -1,0 +1,38 @@
+<h3>Mesas</h3>
+<p>
+  <button (click)="novaMesa()" class="btn btn-sm btn-info">Incluir</button>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Mesa</th>
+          <th>Lugares</th>
+          <th>Disponível</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mesa of mesas">
+          <td>{{ mesa.descricao }}</td>
+          <td>{{ mesa.lugares }}</td>
+          <td>
+            <span *ngIf="mesa.disponivel" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <span *ngIf="mesa.ativo" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <a (click)="editar(mesa)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+            <a (click)="excluir(mesa)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-mesas-incluir *ngIf="modalNovaMesa" (fecharModal)="fecharModalNovaMesa($event)"></app-mesas-incluir>
+<app-mesas-alterar *ngIf="modalAlterarMesa" [mesa]="mesa" (fecharModal)="fecharModalAlterarMesa($event)"></app-mesas-alterar>
+<app-mesas-excluir *ngIf="modalExcluirMesa" [mesa]="mesa" (fecharModal)="fecharModalExcluirMesa($event)"></app-mesas-excluir>

@@ -1,0 +1,53 @@
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]='["/"]'>Chamonix</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+            <ul class='nav navbar-nav'>
+                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a [routerLink]='["/"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/usuarios"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-user'></span> Usuários
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/cargos"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-copyright-mark'></span> Cargos
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/produtos"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-ice-lolly-tasted'></span> Produtos
+                    </a>
+                </li> 
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/categorias"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-star'></span> Categorias
+                    </a>
+                </li>   
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/FormaPagamento"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-cutlery'></span> Forma Pagamento
+                    </a>
+                </li>            
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/mesas"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-cutlery'></span> Mesas
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

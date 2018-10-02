@@ -1,0 +1,36 @@
+<h3>Categorias</h3>
+<p>
+  <button (click)="novaCategoria()" class="btn btn-sm btn-info">Incluir</button>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Cardápio</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias">
+          <td>{{ categoria.descricao }}</td>
+          <td>
+            <span *ngIf="categoria.cardapio" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <span *ngIf="categoria.ativo" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <a (click)="editar(categoria)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+            <a (click)="excluir(categoria)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-categoria-incluir *ngIf="modalNovaCategoria" (fecharModal)="fecharModalNovaCategoria($event)"></app-categoria-incluir>
+<app-categoria-alterar *ngIf="modalAlterarCategoria" [categoria]="categoria" (fecharModal)="fecharModalAlterarCategoria($event)"></app-categoria-alterar>
+<app-categoria-excluir *ngIf="modalExcluirCategoria" [categoria]="categoria" (fecharModal)="fecharModalExcluirCategoria($event)"></app-categoria-excluir>

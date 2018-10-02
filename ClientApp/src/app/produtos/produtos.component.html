@@ -1,0 +1,38 @@
+<h3>Produtos</h3>
+<p>
+  <button (click)="novoProduto()" class="btn btn-sm btn-info">Incluir</button>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Valor Venda</th>
+          <th>Estoque</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos">
+          <td>{{ produto.descricao }}</td>
+          <td>{{ produto?.categoria?.descricao }}</td>
+          <td>{{ produto.valorVenda | currency: 'BRL': true }}</td>
+          <td><span *ngIf="produto.controleEstoque">{{ produto.estoque }}</span></td>
+          <td>
+            <span *ngIf="produto.ativo" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <a (click)="editar(produto)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+            <a (click)="excluir(produto)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-produto-incluir *ngIf="modalNovoProduto" (fecharModal)="fecharModalNovoProduto($event)"></app-produto-incluir>
+<app-produto-alterar *ngIf="modalAlterarProduto" [produto]="produto" (fecharModal)="fecharModalAlterarProduto($event)"></app-produto-alterar>
+<app-produto-excluir *ngIf="modalExcluirProduto" [produto]="produto" (fecharModal)="fecharModalExcluirProduto($event)"></app-produto-excluir>

@@ -1,0 +1,36 @@
+<h3>Usuários</h3>
+<p>
+  <button (click)="novoUsuario()" class="btn btn-sm btn-info">Incluir</button>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cargo</th>
+          <th>Telefone</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.nome }}</td>
+          <td>{{ usuario?.cargo?.descricao }}</td>
+          <td>{{ usuario.telefone }}</td>
+          <td>
+            <span *ngIf="usuario.ativo" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <a (click)="editar(usuario)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+            <a (click)="excluir(usuario)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-usuario-incluir *ngIf="modalNovoUsuario" (fecharModal)="fecharModalNovoUsuario($event)"></app-usuario-incluir>
+<app-usuario-alterar *ngIf="modalAlterarUsuario" [usuario]="usuario" (fecharModal)="fecharModalAlterarUsuario($event)"></app-usuario-alterar>
+<app-usuario-excluir *ngIf="modalExcluirUsuario" [usuario]="usuario" (fecharModal)="fecharModalExcluirUsuario($event)"></app-usuario-excluir>

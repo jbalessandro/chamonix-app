@@ -1,0 +1,32 @@
+<h3>Cargos</h3>
+<p>
+  <button (click)="novoCargo()" class="btn btn-sm btn-info">Incluir</button>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Cargo</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cargo of cargos">
+          <td>{{ cargo.descricao }}</td>
+          <td>
+            <span *ngIf="cargo.ativo" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <a (click)="editar(cargo)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+            <a (click)="excluir(cargo)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-cargo-incluir *ngIf="modalNovoCargo" (fecharModal)="fecharModalNovoCargo($event)"></app-cargo-incluir>
+<app-cargo-alterar *ngIf="modalAlterarCargo" [cargo]="cargo" (fecharModal)="fecharModalAlterarCargo($event)"></app-cargo-alterar>
+<app-cargo-excluir *ngIf="modalExcluirCargo" [cargo]="cargo" (fecharModal)="fecharModalExcluirCargo($event)"></app-cargo-excluir>

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-12 text-danger text-center">
+    <h4>Confirma a exclusão do pagamamento no valor de {{ pagamento?.valor | currency: 'BRL':true }}?</h4>
+  </div>
+</div>
+<div class="row padding-top-10">
+  <div class="col-md-12 text-center">
+    <button (click)="voltar()" class="btn btn-small btn-success">NÃO</button>
+    <button (click)="excluir()" class="btn btn-small btn-danger ">SIM</button>
+  </div>
+</div>

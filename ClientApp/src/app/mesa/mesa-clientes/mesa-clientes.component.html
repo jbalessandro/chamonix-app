@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-4">
+    <label class="label-control" for="nome">Clientes na mesa</label><br>
+    <input type="number" min="1" max="100" [(ngModel)]="clientes" maxlength="20" class="form-control in-line">
+    <span class="glyphicon glyphicon-plus" (click)="plus()"></span>
+    <span class="glyphicon glyphicon-minus" (click)="minus()"></span>  
+  </div>
+</div>
+<div class="row padding-top-10">
+  <div class="col-md-4">
+    <button (click)="gravar()" class="btn btn-sm btn-info">Gravar</button>
+  </div>
+</div>

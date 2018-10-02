@@ -1,0 +1,19 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" (click)="closeModal()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Excluir Mesa</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12 text-center form-group">
+          <h4>Confirma a exclusão da mesa {{ mesa.descricao }}?</h4>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" (click)="closeModal()" class="btn btn-sm btn-default" data-dismiss="modal">Não</button>
+      <button type="button" (click)="excluir()" class="btn btn-sm btn-danger">Sim</button>
+    </div>
+  </div>
+</div>

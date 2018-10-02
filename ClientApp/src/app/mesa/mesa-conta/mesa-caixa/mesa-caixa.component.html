@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12">
+    Mesa {{ conta?.pedido?.mesa?.descricao }} - Abertura: {{ conta?.pedido?.inicio | date: 'dd/MM/yyyy HH:mm' }}hs<br>
+    {{ conta?.pedido?.clientes }} clientes - {{ contaPessoa | currency: 'BRL': true }} (individual)
+    Total: {{ conta?.pedido?.total | currency: 'BRL': true }}<br>
+    <h4>Saldo: {{ saldo | currency: 'BRL': true }}</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <button *ngIf="saldo <= 0" (click)="fecharMesa()" class="btn btn-small btn-danger">FECHAR MESA</button>
+  </div>
+</div>
+<hr>
+<div class="row padding-top-10">
+  <div class="col-md-12">
+    <span *ngFor="let forma of formasPgtos" (click)="selFormaPgto(forma)" class="btn categoria-btn" [ngClass]="{ 'btn-success': (forma !== formaPgto), 'btn-danger': (forma === formaPgto) }">{{
+      forma.descricao }}</span>
+  </div>
+</div>
+<div class="row padding-top-10">
+  <div class="col-md-12 form-group">
+    <label class="control-label">Valor</label>
+    <input type="text" [(ngModel)]="valor" class="form-control" />
+  </div>
+</div>
+<div class="row padding-top-10">
+  <div class="col-md-12">
+    <button *ngIf="formaPgto && valor > 0" (click)="confirmarRecebimento()" class="btn btn-small btn-danger">Confirmar
+      recebimento</button>
+  </div>
+</div>
+<app-mesa-caixa-pagamentos *ngIf="exibirPagamentos" [pagamentos]="pagamentos" (pgtoExcluir)="excluirPagamento($event)"></app-mesa-caixa-pagamentos>
+<app-mesa-caixa-pagamento-excluir *ngIf="exibirConfExclusao" [pagamento]="pedidoPgto" (fechar)="fecharExclusaoPagamento($event)"></app-mesa-caixa-pagamento-excluir>

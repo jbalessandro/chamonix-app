@@ -1,0 +1,11 @@
+<div class="row text-center">
+  <div class="col-md-12 text-danger">
+    <h4>Confirma o cancelamento da mesa {{ pedido?.mesa?.descricao }}?</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 form-group text-center">
+    <button class="btn btn-small btn-danger" (click)="cancelar()">SIM</button>
+    <button class="btn btn-small btn-success" (click)="voltar()">NÃO</button>
+  </div>
+</div>

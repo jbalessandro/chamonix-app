@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-12">
+    <span *ngFor="let produto of produtos" (click)="selProduto(produto)" class="btn btn-success categoria-btn">
+      <small>{{ produto.descricao }}<br>{{ produto.valorVenda | currency: 'BRL': true }}</small>
+    </span>
+    <span (click)="voltar()" class="btn btn-danger categoria-btn"><small>VOLTAR</small></span>
+  </div>
+</div>

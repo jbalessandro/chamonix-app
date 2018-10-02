@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+input { text-transform: uppercase !important }
+input[type="number"] { max-width: 140px;}
+a { cursor: pointer;}
+.panel-red { background-color: red}
+.panel-black { background-color: black}
+.padding-10 { padding: 10px; }
+.padding-20 { padding: 20px; }
+.padding-top-10 { padding-top: 10px; }
+.padding-top-20 { padding-top: 20px; }
+.padding-left-10 { padding-left: 10px; }
+.modal-dialog {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    padding-top: 30%;
+}
+.mesa-livre { background-color: green; color: #fff;}
+.mesa-ocupada { background-color:black; color: #fff; }
+.categoria-btn { width:160px; height: 70px; border-radius: 0px !important; margin: 0 3px 3px 0 !important; line-height: 58px !important;}
+.lower-case { text-transform: lowercase }
+.in-line { display: inline !important; }

@@ -1,0 +1,22 @@
+<div class="row">
+  <div *ngFor="let mesa of mesas" class="col-md-4">
+    <div class="panel" [ngClass]="{'mesa-livre': mesa.disponivel, 'mesa-ocupada': !mesa.disponivel}">
+      <div (click)="mesaVisao(mesa)" class="panel-heading" style="color: #fff;" [ngClass]="{'mesa-livre': mesa.disponivel, 'mesa-ocupada': !mesa.disponivel}">
+        {{ mesa.descricao }}
+        <span *ngIf="mesa.inicio" class="pull-right"><small>{{ mesa.inicio | date: 'HH:mm' }}h</small></span>
+      </div>
+      <div class="panel-body" style="color: #000000;">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+            <small *ngIf="mesa.disponivel">{{ mesa.lugares }} L</small>
+            <small *ngIf="!mesa.disponivel">{{ mesa.clientes }} C</small>
+          </div>
+          <div class="col-md-8">
+            <app-mesa-posicao-pedido-item *ngIf="mesa.pedidoId !== 0" [pedidoId]="mesa.pedidoId"></app-mesa-posicao-pedido-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row padding-top-20">
+  <div class="col-md-12 text-center">
+    <div class="btn btn-success" (click)="inicio()">{{ mesa?.descricao }}</div>
+    <button class="btn btn-default"><span (click)="clientes()" class="glyphicon glyphicon-user"></span></button>
+    <button class="btn btn-default" [disabled]="pedidoId === 0"><span (click)="pedidos()" class="glyphicon glyphicon-cutlery"></span></button>
+    <button class="btn btn-default" [disabled]="pedidoId === 0"><span (click)="conta()" class="glyphicon glyphicon-usd"></span></button>
+    <button class="btn btn-default" [disabled]="pedidoId === 0"><span (click)="trocarMesa()" class="glyphicon glyphicon-transfer"></span></button>
+    <button class="btn btn-default" [disabled]="pedidoId === 0"><span (click)="cancelar()" class="glyphicon glyphicon-trash"></span></button>
+  </div>
+</div>
+<hr>
+<app-mesa-resumo *ngIf="!modalClientes && !modalPedidos && !modalTrocar && !modalCancelar && !modalConta && pedidoId != 0" [pedido]="pedido"></app-mesa-resumo>
+<app-mesa-clientes *ngIf="modalClientes" [pedidoId]="pedidoId" [mesaId]="mesaId" (fechar)="fecharClientes($event)"></app-mesa-clientes>
+<app-mesa-pedido *ngIf="modalPedidos" [pedido]="pedido" (pedidoItem)="selPedidoItem($event)"></app-mesa-pedido>
+<app-mesa-trocar *ngIf="modalTrocar" [mesa]="mesa" (mesaId)="selNovaMesa($event)"></app-mesa-trocar>
+<app-mesa-cancelar *ngIf="modalCancelar" [pedido]="pedido" (cancelada)="selCancelar($event)" (fechar)="fecharCancelar()"></app-mesa-cancelar>
+<app-mesa-conta *ngIf="modalConta" [mesaId]="mesaId" (fechar)="fecharConta($event)"></app-mesa-conta>

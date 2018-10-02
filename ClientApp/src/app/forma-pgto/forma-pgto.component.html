@@ -1,0 +1,36 @@
+<h3>Forma de Pagamento</h3>
+<p>
+  <button (click)="novaFormaPgto()" class="btn btn-sm btn-info">Incluir</button>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Forma de Pagamento</th>
+          <th>Cartão</th>
+          <th>Ativo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of formasPgtos">
+          <td>{{ item.descricao }}</td>
+          <td>
+            <span *ngIf="item.cartao" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <span *ngIf="item.ativo" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td>
+            <a (click)="editar(item)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+            <a (click)="excluir(item)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-forma-pgto-incluir *ngIf="modalNovaFormaPgto" (fecharModal)="fecharModalNovaFormaPgto($event)"></app-forma-pgto-incluir>
+<app-forma-pgto-alterar *ngIf="modalAlterarFormaPgto" [formaPgto]="formaPgto" (fecharModal)="fecharModalAlterarFormaPgto($event)"></app-forma-pgto-alterar>
+<app-forma-pgto-excluir *ngIf="modalExcluirFormaPgto" [formaPgto]="formaPgto" (fecharModal)="fecharModalExcluirFormaPgto($event)"></app-forma-pgto-excluir>

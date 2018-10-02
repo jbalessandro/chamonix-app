@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <b>{{ produto.descricao }}</b><br>
+    <small>{{ produto?.detalhe }}</small>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12 form-group">
+    <label class="control-label">Quantidade</label><br>
+    <input type="number" min="1" max="100" [(ngModel)]="quantidade" class="form-control in-line">
+    <span class="glyphicon glyphicon-plus" (click)="plus()"></span>
+    <span class="glyphicon glyphicon-minus" (click)="minus()"></span>  
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 form-group">
+    <label class="control-label">Observações</label>
+    <textarea [(ngModel)]="observacao" class="form-control"></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-success" (click)="gravar()">Incluir</button>
+  </div>
+</div>

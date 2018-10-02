@@ -1,0 +1,7 @@
+<div *ngIf="exibir">
+  <small><b>Pedidos:</b></small><br>
+  <small *ngFor="let item of pedidoItens">
+    <span class="glyphicon glyphicon-ok" (click)="servido(item)"></span>
+    {{ item.quantidade }} - {{ item?.produto?.descricao | slice:0:20 }}<br>
+  </small>
+</div>

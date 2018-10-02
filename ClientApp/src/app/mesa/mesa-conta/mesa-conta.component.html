@@ -1,0 +1,60 @@
+<div *ngIf="!caixa" id="print-section">
+  <div class="row">
+    <div class="col-md-12">
+      Mesa {{ conta?.pedido?.mesa?.descricao }} - Abertura: {{ conta?.pedido?.inicio | date: 'dd/MM/yyyy HH:mm' }}hs<br>
+      {{ conta?.pedido?.clientes }} clientes - {{ contaPessoa | currency: 'BRL': true }} (individual)
+    </div>
+  </div>
+  <hr>
+  <b>Consumo</b>
+  <div class="row padding-top-10">
+    <div class="col-md-12">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Qtde</th>
+            <th>Item</th>
+            <th>Unitário</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of conta?.contaConsumo">
+            <td class="text-center">{{ item.quantidade }}</td>
+            <td>{{ item.descricao }}</td>
+            <td class="text-right">{{ item.preco | currency: 'BRL': true }}</td>
+            <td class="text-right">{{ item.total | currency: 'BRL': true }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>TOTAL</td>
+            <td></td>
+            <td class="text-right">{{ conta?.pedido?.consumo | currency: 'BRL': true }}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>SERVIÇO</td>
+            <td></td>
+            <td class="text-right">{{ conta?.pedido?.servico | currency: 'BRL': true }}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><b>TOTAL</b></td>
+            <td></td>
+            <td class="text-right"><b>{{ conta?.pedido?.total | currency: 'BRL': true }}</b></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+<div *ngIf="!caixa" class="row">
+  <div class="col-md-12 text-right">
+    <button class="btn btn-sm btn-success" (click)="imprimir()">Imprimir</button>
+    <button class="btn btn-sm btn-danger" (click)="pagamento()">Pagamento</button>
+  </div>
+</div>
+
+<app-mesa-caixa *ngIf="caixa" [mesaId]="mesaId" (fechar)="fecharModalCaixa()"></app-mesa-caixa>
