@@ -11,7 +11,7 @@
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-            <ul class='nav navbar-nav'>
+            <ul *ngIf="!relatorios" class='nav navbar-nav'>
                 <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
                     <a [routerLink]='["/"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-home'></span> Home
@@ -39,12 +39,39 @@
                 </li>   
                 <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/FormaPagamento"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-cutlery'></span> Forma Pagamento
+                        <span class='glyphicon glyphicon-credit-card'></span> Forma Pagamento
                     </a>
                 </li>            
                 <li [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/mesas"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-cutlery'></span> Mesas
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a (click)='collapse();setRelatorios()'>
+                        <span class='glyphicon glyphicon-list-alt'></span> Relatórios
+                    </a>
+                </li>                
+            </ul>
+            <ul *ngIf="relatorios" class='nav navbar-nav'>
+                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a [routerLink]='["/rel-vendas"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-tags'></span> Vendas
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a [routerLink]='["/rel-recebimentos"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-credit-card'></span> Recebimentos
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a [routerLink]='["/rel-estoque"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-shopping-cart'></span> Estoque
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a (click)='collapse();setRelatorios()'>
+                        <span class='glyphicon glyphicon-arrow-left'></span> Voltar
                     </a>
                 </li>
             </ul>
