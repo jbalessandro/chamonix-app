@@ -29,9 +29,9 @@
                     "command": "xdg-open"
                 }
             },
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
+            // "env": {
+            //     "ASPNETCORE_ENVIRONMENT": "Development"
+            // },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
