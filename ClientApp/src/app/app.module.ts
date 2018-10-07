@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -49,6 +50,7 @@ import { MesaCaixaPagamentoExcluirComponent } from './mesa/mesa-conta/mesa-caixa
 import { MesaPosicaoPedidoItemComponent } from './mesa/mesa-posicao/mesa-posicao-pedido-item/mesa-posicao-pedido-item.component';
 import { MesasAlterarComponent } from './mesas/mesas-alterar/mesas-alterar.component';
 import { MesasExcluirComponent } from './mesas/mesas-excluir/mesas-excluir.component';
+import { ParametroComponent } from './parametro/parametro.component';
 
 @NgModule({
   declarations: [
@@ -95,12 +97,14 @@ import { MesasExcluirComponent } from './mesas/mesas-excluir/mesas-excluir.compo
     MesaCaixaPagamentosComponent,
     MesaCaixaPagamentoExcluirComponent,
     MesaPosicaoPedidoItemComponent,
-    MesasAlterarComponent
+    MesasAlterarComponent,
+    ParametroComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MyDatePickerModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -111,7 +115,8 @@ import { MesasExcluirComponent } from './mesas/mesas-excluir/mesas-excluir.compo
       { path: 'produtos', component: ProdutosComponent },
       { path: 'mesas', component: MesasComponent },
       { path: 'mesa', component: MesaComponent },
-      { path: 'FormaPagamento', component: FormaPgtoComponent }
+      { path: 'FormaPagamento', component: FormaPgtoComponent },
+      { path: 'parametros', component: ParametroComponent }
     ])
   ],
   providers: [],

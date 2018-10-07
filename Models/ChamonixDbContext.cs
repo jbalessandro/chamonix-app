@@ -15,6 +15,7 @@ namespace chamonix.Models
         public DbSet<ContaConsumo> ContaConsumo { get; set; }
         public DbSet<FormaPgto> FormaPgto { get; set; }
         public DbSet<PedidoPgto> PedidoPgto { get; set; }
+        public DbSet<Parametro> Parametro { get; set; }
 
         public ChamonixDbContext()
         {

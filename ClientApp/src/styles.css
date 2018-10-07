@@ -11,7 +11,7 @@ a { cursor: pointer;}
 .padding-left-10 { padding-left: 10px; }
 .modal-dialog {
     position: absolute !important;
-    top: 50%;
+    top: 120px;
     left: 50%;
     transform: translate(-50%, -50%) !important;
     padding-top: 30%;

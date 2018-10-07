@@ -48,6 +48,11 @@
                     </a>
                 </li>
                 <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/parametros"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-cog'></span> Parâmetros
+                    </a>
+                </li>
+                <li [routerLinkActive]='["link-active"]'>
                     <a (click)='collapse();setRelatorios()'>
                         <span class='glyphicon glyphicon-list-alt'></span> Relatórios
                     </a>
