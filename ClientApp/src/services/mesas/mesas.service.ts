@@ -19,6 +19,10 @@ export class MesasService {
     return this.http.get<Mesa>(`${this.URL}/${id}`);
   }
 
+  getMesasAbertas(): Observable<number> {
+    return this.http.get<number>(`${this.URL}/GetMesasAbertas`);
+  }
+
   post(usuario: Mesa): Observable<Mesa> {
     return this.http.post<Mesa>(this.URL, usuario);
   }

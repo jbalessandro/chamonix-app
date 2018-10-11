@@ -40,6 +40,8 @@ namespace chamonix.Controllers
             pedido.AbertaPor = 1; // TODO: usuario
             pedido.ServicoAceito = true;
             pedido.Inicio = DateTime.Now;
+            pedido.DataOperacao = _db.Parametro.FirstOrDefault().DataOperacao;
+
             var mesa = _db.Mesa.Where(x => x.MesaId == pedido.MesaId).FirstOrDefault();
             mesa.Disponivel = false;
             _db.Entry(mesa).State = EntityState.Modified;

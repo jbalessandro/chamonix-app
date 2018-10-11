@@ -2,26 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { ParametroService } from '../../services/parametro/parametro-service';
 import { Parametro } from '../../models/parametro';
 import { IMyDpOptions, IMyDateModel } from 'mydatepicker';
+import { MesasService } from '../../services/mesas/mesas.service';
 
 @Component({
   selector: 'app-parametro',
   templateUrl: './parametro.component.html',
-  providers: [ParametroService]
+  providers: [ParametroService, MesasService]
 })
 export class ParametroComponent implements OnInit {
 
   parametro = {} as Parametro;
+  mesasAbertas = 0;
   dtOperacao: any;
   myDatePickerOptions: IMyDpOptions = {
     dateFormat: 'dd/mm/yyyy',
   };
-  // tslint:disable-next-line:max-line-length
-  // dtOperacao: any = { date: { year: this.dataInicial.getFullYear(), month: this.dataInicial.getMonth() + 1, day: this.dataInicial.getDate() } };
 
-  constructor(private service: ParametroService) { }
+  constructor(private service: ParametroService,
+    private mesasService: MesasService) { }
 
   ngOnInit() {
     this.getParametro();
+    this.getMesasAbertas();
   }
 
   getParametro() {
@@ -37,6 +39,13 @@ export class ParametroComponent implements OnInit {
         };
       },
       error => alert('Erro ao obter parâmetro')
+    );
+  }
+
+  getMesasAbertas() {
+    this.mesasService.getMesasAbertas().subscribe(
+      data => this.mesasAbertas = data,
+      error => this.mesasAbertas = 1
     );
   }
 

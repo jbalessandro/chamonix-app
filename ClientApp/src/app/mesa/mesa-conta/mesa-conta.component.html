@@ -1,4 +1,18 @@
 <div *ngIf="!caixa" id="print-section">
+
+  <table style="width:100%">
+    <tr>
+      <td><img src="/assets/images/logo.png" width="82px" height="77px" /></td>
+      <td style="text-align:right">
+        <small>
+          <b>Chamonix Fondue</b><br>
+          RS 444, KM 18,5<br>
+          Vale dos Vinhedos<br>
+          Bento Gonçalves - RS<br>
+          Tel: (54) 3464-2466</small><br><br>
+      </td>
+    </tr>
+  </table>
   <div class="row">
     <div class="col-md-12">
       Mesa {{ conta?.pedido?.mesa?.descricao }} - Abertura: {{ conta?.pedido?.inicio | date: 'dd/MM/yyyy HH:mm' }}hs<br>

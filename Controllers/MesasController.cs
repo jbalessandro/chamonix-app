@@ -31,6 +31,13 @@ namespace chamonix.Controllers
             return _db.Mesa.Find(id);
         }
 
+        [HttpGet]
+        [Route("GetMesasAbertas")]
+        public int GetMesasAbertas()
+        {
+            return _db.Mesa.Where(x => x.Ativo == true && x.Disponivel == false).Count();
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody]Mesa mesa)
         {

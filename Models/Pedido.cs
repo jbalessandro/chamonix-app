@@ -18,6 +18,7 @@ namespace chamonix.Models
         public decimal Total { get; set; }
         public decimal Pago { get; set; }
         public bool ServicoAceito { get; set; }
+        public DateTime DataOperacao { get; set; }
 
         public Mesa Mesa  { get; set; }
     }
