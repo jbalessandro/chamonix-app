@@ -34,6 +34,18 @@ namespace chamonix.Controllers
             return _db.Pedido.Include(x => x.Mesa).Where(x => x.MesaId == idMesa && x.FechadaPor == null).FirstOrDefault();
         }
 
+        [HttpGet]
+        [Route("GetPedidos/{ano}/{mes}/{dia}")]
+        public IEnumerable<Pedido> GetPedidos(int ano, int mes, int dia)
+        {
+            var dtOperacao = new DateTime(ano, mes, dia);
+            
+            return _db.Pedido.Include(x => x.Mesa)
+                .Where(x => x.DataOperacao == dtOperacao && x.Pago > 0)
+                .OrderBy(x => x.PedidoId)
+                .ToList();
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody]Pedido pedido)
         {

@@ -51,6 +51,7 @@ import { MesaPosicaoPedidoItemComponent } from './mesa/mesa-posicao/mesa-posicao
 import { MesasAlterarComponent } from './mesas/mesas-alterar/mesas-alterar.component';
 import { MesasExcluirComponent } from './mesas/mesas-excluir/mesas-excluir.component';
 import { ParametroComponent } from './parametro/parametro.component';
+import { RelVendasComponent } from './relatorios/rel-vendas/rel-vendas.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { ParametroComponent } from './parametro/parametro.component';
     MesaCaixaPagamentoExcluirComponent,
     MesaPosicaoPedidoItemComponent,
     MesasAlterarComponent,
-    ParametroComponent
+    ParametroComponent,
+    RelVendasComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -116,7 +118,8 @@ import { ParametroComponent } from './parametro/parametro.component';
       { path: 'mesas', component: MesasComponent },
       { path: 'mesa', component: MesaComponent },
       { path: 'FormaPagamento', component: FormaPgtoComponent },
-      { path: 'parametros', component: ParametroComponent }
+      { path: 'parametros', component: ParametroComponent },
+      { path: 'rel-vendas', component: RelVendasComponent }
     ])
   ],
   providers: [],

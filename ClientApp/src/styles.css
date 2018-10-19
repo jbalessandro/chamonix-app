@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 input { text-transform: uppercase !important }
-input[type="number"] { max-width: 140px;}
-a { cursor: pointer;}
+input[type="number"] { max-width: 140px; }
+a { cursor: pointer; }
+table thead th { text-align: center; }
 .panel-red { background-color: red}
 .panel-black { background-color: black}
 .padding-10 { padding: 10px; }

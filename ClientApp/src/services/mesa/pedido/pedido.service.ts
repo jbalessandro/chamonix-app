@@ -19,6 +19,13 @@ export class PedidoService {
         return this.http.get<Pedido>(`${this.URL}/GetPedido/${idMesa}`);
     }
 
+    getPedidos(dtOperacao: Date): Observable<Array<Pedido>> {
+        const ano = new Date(dtOperacao).getFullYear();
+        const mes = new Date(dtOperacao).getMonth() + 1;
+        const dia = new Date(dtOperacao).getDate();
+        return this.http.get<Array<Pedido>>(`${this.URL}/GetPedidos/${ano}/${mes}/${dia}`);
+    }
+
     post(pedido: Pedido): Observable<Pedido> {
         return this.http.post<Pedido>(this.URL, pedido);
     }
