@@ -9,6 +9,9 @@
         <tr>
           <th>Forma de Pagamento</th>
           <th>Cartão</th>
+          <th>Prazo</th>
+          <th>Cortesia</th>
+          <th>Taxa</th>
           <th>Ativo</th>
           <th></th>
         </tr>
@@ -16,10 +19,15 @@
       <tbody>
         <tr *ngFor="let item of formasPgtos">
           <td>{{ item.descricao }}</td>
-          <td>
+          <td class="text-center">
             <span *ngIf="item.cartao" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">{{ item.prazo }}</td>
+          <td class="text-center">
+            <span *ngIf="item.cortesia" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td class="text-center">{{ item.taxa }}</td>
+          <td class="text-center">
             <span *ngIf="item.ativo" class="glyphicon glyphicon-ok"></span>
           </td>
           <td>

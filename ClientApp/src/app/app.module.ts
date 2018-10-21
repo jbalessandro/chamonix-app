@@ -52,6 +52,7 @@ import { MesasAlterarComponent } from './mesas/mesas-alterar/mesas-alterar.compo
 import { MesasExcluirComponent } from './mesas/mesas-excluir/mesas-excluir.component';
 import { ParametroComponent } from './parametro/parametro.component';
 import { RelVendasComponent } from './relatorios/rel-vendas/rel-vendas.component';
+import { RelRecebimentosComponent } from './relatorios/rel-recebimentos/rel-recebimentos.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { RelVendasComponent } from './relatorios/rel-vendas/rel-vendas.component
     MesaPosicaoPedidoItemComponent,
     MesasAlterarComponent,
     ParametroComponent,
-    RelVendasComponent
+    RelVendasComponent,
+    RelRecebimentosComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -119,7 +121,8 @@ import { RelVendasComponent } from './relatorios/rel-vendas/rel-vendas.component
       { path: 'mesa', component: MesaComponent },
       { path: 'FormaPagamento', component: FormaPgtoComponent },
       { path: 'parametros', component: ParametroComponent },
-      { path: 'rel-vendas', component: RelVendasComponent }
+      { path: 'rel-vendas', component: RelVendasComponent },
+      { path: 'rel-recebimentos', component: RelRecebimentosComponent }
     ])
   ],
   providers: [],

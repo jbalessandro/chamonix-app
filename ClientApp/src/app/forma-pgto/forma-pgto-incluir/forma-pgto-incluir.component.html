@@ -18,6 +18,24 @@
           <label class="form-check-label">Cartão</label>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="nome">Prazo:</label>
+          <input type="number" [(ngModel)]="formaPgto.prazo" min="0" maxlength="120" maxlength="20" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <input type="checkbox" [(ngModel)]="formaPgto.cortesia" class="form-check-input">
+          <label class="form-check-label">Cortesia</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="nome">Taxa</label>
+          <input type="text" [(ngModel)]="formaPgto.taxa" maxlength="12" class="form-control">
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" (click)="closeModal()" class="btn btn-sm btn-default" data-dismiss="modal">Fechar</button>

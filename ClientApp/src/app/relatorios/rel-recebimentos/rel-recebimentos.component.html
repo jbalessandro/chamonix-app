@@ -1,0 +1,37 @@
+<h4>Recebimentos</h4>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>DATA</th>
+          <th>ORIGEM</th>
+          <th>VALOR VENDA</th>
+          <th>TAXA</th>
+          <th>VALOR OPERADORA</th>
+          <th>LÍQUIDO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recebimento of recebimentos">
+          <td class="text-center">{{ recebimento.dtRecebimento | date: 'dd/MM/yyyy' }}</td>
+          <td class="text-center">{{ recebimento.descricao }}</td>
+          <td class="text-right">{{ recebimento.valor | currency: 'BRL': true }}</td>
+          <td class="text-right">{{ recebimento.taxa | number: '1.2-2' }}%</td>
+          <td class="text-right">{{ recebimento.valorOperadora | currency: 'BRL': true  }}</td>
+          <td class="text-right">{{ recebimento.liquido | currency: 'BRL': true }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="2"></th>
+          <th class="text-right">{{ total | currency: 'BRL': true }}</th>
+          <th></th>
+          <th class="text-right">{{ valorOperadora | currency: 'BRL': true }}</th>
+          <th class="text-right">{{ liquido | currency: 'BRL': true }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

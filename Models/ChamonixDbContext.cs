@@ -16,6 +16,7 @@ namespace chamonix.Models
         public DbSet<FormaPgto> FormaPgto { get; set; }
         public DbSet<PedidoPgto> PedidoPgto { get; set; }
         public DbSet<Parametro> Parametro { get; set; }
+        public DbSet<Recebimento> Recebimento { get; set; }
 
         public ChamonixDbContext()
         {
