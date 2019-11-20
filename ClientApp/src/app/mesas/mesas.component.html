@@ -16,15 +16,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let mesa of mesas">
-          <td>{{ mesa.descricao }}</td>
-          <td>{{ mesa.lugares }}</td>
-          <td>
+          <td class="text-center">{{ mesa.descricao }}</td>
+          <td class="text-center">{{ mesa.lugares }}</td>
+          <td class="text-center">
             <span *ngIf="mesa.disponivel" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
             <span *ngIf="mesa.ativo" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
             <a (click)="editar(mesa)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
             <a (click)="excluir(mesa)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
           </td>

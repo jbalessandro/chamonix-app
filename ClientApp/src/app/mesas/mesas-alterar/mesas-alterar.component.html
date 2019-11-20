@@ -7,25 +7,23 @@
     </div>
     <div class="modal-body">
       <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-md-4 form-group">
           <label for="nome">Mesa</label>
-          <input type="text" [(ngModel)]="model.descricao" maxlength="20" class="form-control">
+          <input type="text" OnlyNumber="true" [(ngModel)]="model.descricao" maxlength="20" class="form-control">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 form-group">
-          <label for="nome">Mesa</label>
+        <div class="col-md-4 form-group">
+          <label for="nome">Lugares</label>
           <input type="number" min="1" max="100" [(ngModel)]="model.lugares" maxlength="20" class="form-control">
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-md-4 form-group">
+          <label>Ocupação</label><br />
           <input type="checkbox" [(ngModel)]="model.disponivel" class="form-check-input">
           <label class="form-check-label" for="ativo">Disponível</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-md-4 form-group">
+          <label>Situação</label><br />
           <input type="checkbox" [(ngModel)]="model.ativo" class="form-check-input">
           <label class="form-check-label" for="ativo">Ativo</label>
         </div>

@@ -15,5 +15,7 @@ namespace chamonix.Models
         public bool Ativo { get; set; }
         [Required]
         public DateTime AlteradoEm { get; set; }
+        [Required]
+        public bool MenuSecundario { get; set; }
     }
 }

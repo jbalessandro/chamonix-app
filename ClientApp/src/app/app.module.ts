@@ -53,6 +53,7 @@ import { MesasExcluirComponent } from './mesas/mesas-excluir/mesas-excluir.compo
 import { ParametroComponent } from './parametro/parametro.component';
 import { RelVendasComponent } from './relatorios/rel-vendas/rel-vendas.component';
 import { RelRecebimentosComponent } from './relatorios/rel-recebimentos/rel-recebimentos.component';
+import { OnlyNumber } from '../directives/only-number';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { RelRecebimentosComponent } from './relatorios/rel-recebimentos/rel-rece
     MesasAlterarComponent,
     ParametroComponent,
     RelVendasComponent,
-    RelRecebimentosComponent
+    RelRecebimentosComponent,
+    OnlyNumber
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

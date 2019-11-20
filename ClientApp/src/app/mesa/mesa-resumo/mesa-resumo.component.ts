@@ -41,7 +41,13 @@ export class MesaResumoComponent implements OnInit {
     pedidoItem.ativo = false;
     this.service.put(pedidoItem).subscribe(
       data => this.getPedidoItem(),
-      error => alert('Erro ao excluir')
+      error => {
+        if (error && error.error && error.error.Message){
+          alert(error.error.Message[0]);  
+        } else {
+          alert('Erro ao excluir');
+        }
+      }
     );
   }
 

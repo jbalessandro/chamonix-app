@@ -43,7 +43,14 @@ export class MesaPedidoComponent implements OnInit {
     }
   }
 
-  selPedidoItem(pedidoItem: PedidoItem) {
-    this.pedidoItem.emit(pedidoItem);
+  selPedidoItem(pedidoItem: PedidoItem) {  
+    if (this.categoria.menuSecundario){
+      this.selCategoria(this.categoria);
+    } else {
+      //this.pedidoItem.emit(pedidoItem);
+      this.modalPedidoItem = false;
+      this.modalProduto = false;
+      this.modalCategoria = true;
+    }
   }
 }

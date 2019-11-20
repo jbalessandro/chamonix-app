@@ -49,7 +49,7 @@ namespace chamonix.Controllers
         {
             if (pedidoItem.Pedido.Termino != null)
             {
-                ModelState.AddModelError(null, "Pedido já finalizado");
+                ModelState.AddModelError("Message", "Pedido já finalizado");
                 return BadRequest(ModelState);
             }
 
@@ -69,7 +69,7 @@ namespace chamonix.Controllers
 
             if (item.Pedido.Termino != null)
             {
-                ModelState.AddModelError(null, "Pedido já finalizado");
+                ModelState.AddModelError("Message", "Pedido já finalizado. Efetue o fechamento da mesa");
                 return BadRequest(ModelState);
             }
 

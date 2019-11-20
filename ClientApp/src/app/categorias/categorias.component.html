@@ -9,6 +9,7 @@
         <tr>
           <th>Categoria</th>
           <th>Cardápio</th>
+          <th>Menu Secundário</th>
           <th>Ativo</th>
           <th></th>
         </tr>
@@ -16,13 +17,16 @@
       <tbody>
         <tr *ngFor="let categoria of categorias">
           <td>{{ categoria.descricao }}</td>
-          <td>
+          <td class="text-center">
             <span *ngIf="categoria.cardapio" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
+              <span *ngIf="categoria.menuSecundario" class="glyphicon glyphicon-ok"></span>
+          </td>
+          <td class="text-center">
             <span *ngIf="categoria.ativo" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
             <a (click)="editar(categoria)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
             <a (click)="excluir(categoria)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
           </td>

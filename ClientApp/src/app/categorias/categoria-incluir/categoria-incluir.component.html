@@ -13,9 +13,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-md-4 form-group">
+            <label>Cardápio</label><br />
           <input type="checkbox" [(ngModel)]="categoria.cardapio" class="form-check-input">
           <label class="form-check-label" for="ativo">Exibir no cardápio</label>
+        </div>
+        <div class="col-md-8 form-group">
+            <label>Ação ao lançar</label><br />
+            <input type="checkbox" [(ngModel)]="categoria.menuSecundario" class="form-check-input">
+            <label class="form-check-label" for="ativo">voltar ao menu secundário</label>
         </div>
       </div>
     </div>

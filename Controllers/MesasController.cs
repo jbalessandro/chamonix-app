@@ -60,7 +60,9 @@ namespace chamonix.Controllers
         public IActionResult Delete(int id)
         {
             var mesa = _db.Mesa.Find(id);
-            _db.Mesa.Remove(mesa);
+            mesa.Ativo = false;
+            _db.Entry(mesa).State = EntityState.Modified;
+            //_db.Mesa.Remove(mesa);
             _db.SaveChanges();
             return Ok(mesa);
         }

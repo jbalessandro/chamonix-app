@@ -15,10 +15,10 @@
       <tbody>
         <tr *ngFor="let cargo of cargos">
           <td>{{ cargo.descricao }}</td>
-          <td>
+          <td class="text-center">
             <span *ngIf="cargo.ativo" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
             <a (click)="editar(cargo)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
             <a (click)="excluir(cargo)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
           </td>

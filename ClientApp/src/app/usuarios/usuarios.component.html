@@ -19,10 +19,10 @@
           <td>{{ usuario.nome }}</td>
           <td>{{ usuario?.cargo?.descricao }}</td>
           <td>{{ usuario.telefone }}</td>
-          <td>
+          <td class="text-center">
             <span *ngIf="usuario.ativo" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
             <a (click)="editar(usuario)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
             <a (click)="excluir(usuario)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
           </td>

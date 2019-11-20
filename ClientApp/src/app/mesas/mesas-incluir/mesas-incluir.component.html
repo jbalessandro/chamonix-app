@@ -6,13 +6,11 @@
     </div>
     <div class="modal-body">
       <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-md-4 form-group">
           <label for="nome">Mesa</label>
-          <input type="text" [(ngModel)]="mesa.descricao" maxlength="10" class="form-control">
+          <input type="text" OnlyNumber="true" [(ngModel)]="mesa.descricao" maxlength="10" class="form-control">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-md-4 form-group">
           <label for="nome">Lugares</label>
           <input type="number" [(ngModel)]="mesa.lugares" min="1" max="100" class="form-control">
         </div>

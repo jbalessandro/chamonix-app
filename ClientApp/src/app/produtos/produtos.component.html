@@ -21,10 +21,10 @@
           <td>{{ produto?.categoria?.descricao }}</td>
           <td>{{ produto.valorVenda | currency: 'BRL': true }}</td>
           <td><span *ngIf="produto.controleEstoque">{{ produto.estoque }}</span></td>
-          <td>
+          <td class="text-center">
             <span *ngIf="produto.ativo" class="glyphicon glyphicon-ok"></span>
           </td>
-          <td>
+          <td class="text-center">
             <a (click)="editar(produto)"><span class="glyphicon glyphicon-edit" title="Editar"></span></a>
             <a (click)="excluir(produto)"><span class="glyphicon glyphicon-remove" title="Excluir"></span></a>
           </td>

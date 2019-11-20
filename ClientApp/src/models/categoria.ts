@@ -3,4 +3,5 @@ export interface Categoria {
     descricao: string;
     cardapio: boolean;
     ativo: boolean;
+    menuSecundario: boolean;
 }
